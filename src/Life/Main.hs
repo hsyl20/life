@@ -3,6 +3,7 @@ module Main where
 
 import Life.Theme
 import Life.Welcome
+import Life.Chart
 
 import Prelude hiding (writeFile)
 
@@ -11,14 +12,11 @@ import Control.Monad (msum, forM_)
 import Control.Monad.Trans.Class (lift)
 import Network.Socket (withSocketsDo)
 import Text.Printf
-import qualified Data.ByteString.Char8 as C
 import Graphics.Rendering.Chart
-import Graphics.Rendering.Chart.Backend.Diagrams
 import Data.Colour
 import Data.Colour.Names
 import Control.Lens
 import Data.Default.Class
-import Text.Blaze.Svg.Renderer.Utf8 (renderSvg)
 
 import Data.Time.LocalTime
 import Data.Time.Calendar
@@ -67,12 +65,6 @@ showSkills = do
       H.li $
          H.a (toHtml $ skill)
             ! A.href (H.toValue $ "/skill/" ++ skill)
-
--- | Render a chart in SVG and return it
-showChart :: Renderable () -> IO Response
-showChart chart = do
-   (svg, _) <- renderableToSVG chart 800 600
-   return $ toResponseBS (C.pack "image/svg+xml") (renderSvg svg)
 
 chartExample :: Renderable ()
 chartExample = toRenderable layout

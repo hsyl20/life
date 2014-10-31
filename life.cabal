@@ -20,6 +20,7 @@ executable life
   other-modules:
       Life.Theme
       Life.Welcome
+      Life.Chart
 
   -- other-extensions:    
 
