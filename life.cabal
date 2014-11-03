@@ -21,6 +21,7 @@ executable life
       Life.Theme
       Life.Welcome
       Life.Chart
+      Life.DB.Skills
 
   -- other-extensions:    
 
@@ -40,6 +41,11 @@ executable life
       , blaze-html ==0.7.*
       , network ==2.6.*
       , transformers ==0.4.*
+      , containers ==0.5.*
+      , text ==1.2.*
+      , acid-state ==0.12.*
+      , safecopy ==0.8.*
+      , mtl ==2.2.*
 
   ghc-options: -Wall -threaded -O2
 
