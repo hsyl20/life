@@ -21,7 +21,10 @@ executable life
       Life.Theme
       Life.Welcome
       Life.Chart
+      Life.DB.Account
+      Life.DB.Tag
       Life.DB.Skills
+      Life.DB.Books
 
   -- other-extensions:    
 
@@ -30,6 +33,7 @@ executable life
       , time ==1.4.*
       , Chart ==1.3.*
       , Chart-diagrams ==1.3.*
+      , datetime ==0.2.*
       , diagrams ==1.2.*
       , colour ==2.3.*
       , lens ==4.4.*

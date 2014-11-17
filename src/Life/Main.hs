@@ -4,7 +4,9 @@ module Main where
 import Life.Theme
 import Life.Welcome
 import Life.Chart
+import Life.DB.Account
 import Life.DB.Skills
+import Life.DB.Books
 
 import Prelude hiding (writeFile)
 
@@ -68,7 +70,7 @@ server db conf = do
 -- | Show skill list
 showSkills :: AcidState Account -> ServerPartT IO Response
 showSkills db = do
-   skillNames <- query' db AccountSkillNames :: ServerPartT IO [Text]
+   skillNames <- fmap skillName <$> query' db GetAccountSkills
    
    ok . toResponse . appTemplate $ do
       H.h2 "Skill list"
